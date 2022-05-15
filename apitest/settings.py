@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['localhost','souhil19.pythonanywhere.com']
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'apitest/mediafiles')
 
 # URL used to access the media
-MEDIA_URL = '/media/'
+MEDIA_URL = '/mediafiles/'
 
 
 # Application definition
