@@ -9,26 +9,27 @@ from rest_framework.authtoken.models import Token
 
 
 class Titre(models.Model):
-    ligue=models.IntegerField()
-    superDZ = models.IntegerField()
-    cup = models.IntegerField()
-    caf = models.IntegerField()
-    conf = models.IntegerField()
-    SuperAF = models.IntegerField()
+    championnat=models.IntegerField(blank=True,null=True)
+    ligue=models.IntegerField(blank=True,null=True)
+    coupe_dalgerie = models.IntegerField(blank=True,null=True)
+    superDZ = models.IntegerField(blank=True,null=True)
+    coupe_des_coupe = models.IntegerField(blank=True,null=True)
+    coupe_caf = models.IntegerField(blank=True,null=True)
+    Supercoupe_afrique = models.IntegerField(blank=True,null=True)
 
 
 def upload_to(instance, filename):
     return 'images/{filename}'.format(filename=filename)
 
 class Equipe(models.Model):
-    nom =models.CharField(max_length=30)
-    abbreviation=models.CharField(max_length=30)
+    nom =models.CharField(max_length=50)
+    abbreviation=models.CharField(max_length=50)
     logo = models.ImageField(upload_to=upload_to, blank=True, null=True)
-    stade =models.CharField(max_length=30)
-    dateDeCreation= models.DateField(auto_now_add=True)
-    president = models.CharField(max_length=30)
-    entraineur = models.CharField(max_length=30, default='')
-    titres = models.ForeignKey(Titre, on_delete=models.CASCADE)
+    stade =models.CharField(max_length=50)
+    dateDeCreation= models.DateField()
+    president = models.CharField(max_length=50)
+    entraineur = models.CharField(max_length=50, default='')
+    titres = models.ForeignKey(Titre, on_delete=models.CASCADE,blank=True,null=True)
 
     def __str__(self):
         return self.nom
