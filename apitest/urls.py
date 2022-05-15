@@ -22,6 +22,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('adminsouhil/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('', include('api.urls')),
+    path('api/v1/algerie/ligue1/', include('api.urls')),
     path('api-token-auth', obtain_auth_token),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -27,11 +27,12 @@ class Equipe(models.Model):
     stade =models.CharField(max_length=30)
     dateDeCreation= models.DateField(auto_now_add=True)
     president = models.CharField(max_length=30)
-    entraineur = models.CharField(max_length=30)
+    entraineur = models.CharField(max_length=30, default='')
     titres = models.ForeignKey(Titre, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nom
+
 
 
 
